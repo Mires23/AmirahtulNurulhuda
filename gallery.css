@@ -1,0 +1,184 @@
+/* css/gallery.css */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    opacity: 0; /* Start hidden for fade-in */
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.gallery-intro h1 {
+    text-align: center;
+    color: #444;
+}
+
+.gallery-intro p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Styling for the new carousel section */
+.photo-carousel-section {
+    margin: 30px 0;
+}
+
+.photo-carousel-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444; /* Adjust color as needed */
+}
+
+/* Basic styling for the carousel container */
+.photo-carousel {
+    margin: 0 auto; /* Center the carousel */
+    max-width: 90%; /* Adjust max-width as needed */
+    /* Slick adds its own necessary styles; you can add overrides here */
+}
+
+/* Style images within the carousel */
+.photo-carousel div img {
+    width: 100%; /* Make images fill their container */
+    height: auto;
+    padding: 0 10px; /* Add some spacing between slides */
+    box-sizing: border-box;
+    display: block; /* Ensure image is block level */
+    margin: 0 auto; /* Center image within its div if needed */
+}
+
+/* Style Slick Dots (optional) */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #555; /* Adjust dot color */
+}
+.slick-dots li.slick-active button:before {
+    color: #007bff; /* Adjust active dot color */
+}
+
+/* Style Slick Arrows (optional) */
+.slick-prev:before, .slick-next:before {
+    color: #333; /* Adjust arrow color */
+    font-size: 25px;
+}
+
+/* Keep styles for audio/video sections */
+.audio-section, .video-section {
+    margin: 40px 0; /* Increased margin */
+    text-align: center;
+}
+
+.audio-section h2, .video-section h2 {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+audio, video {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Keep existing responsive rules if needed, or adjust */
+@media (max-width: 768px) {
+    /* Adjust carousel settings or other styles for tablets */
+}
+
+@media (max-width: 480px) {
+    /* Adjust carousel settings or other styles for mobile */
+    .photo-carousel {
+        max-width: 100%;
+    }
+}
+
+/* Styling for the carousel sections */
+.carousel-section {
+    margin: 40px 0; /* Increased spacing between sections */
+}
+
+.carousel-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444; /* Adjust color as needed */
+}
+
+/* Basic styling for ALL carousel containers */
+.slick-carousel {
+    margin: 0 auto; /* Center the carousel */
+    max-width: 90%; /* Adjust max-width as needed */
+}
+
+/* Style images within ANY carousel */
+.slick-carousel div img {
+    width: 100%; /* Make images fill their container */
+    height: auto;
+    padding: 0 10px; /* Add some spacing between slides */
+    box-sizing: border-box;
+    display: block; /* Ensure image is block level */
+    margin: 0 auto; /* Center image within its div if needed */
+}
+
+/* Style Slick Dots (applies to all carousels) */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #555; /* Adjust dot color */
+}
+.slick-dots li.slick-active button:before {
+    color: #007bff; /* Adjust active dot color */
+}
+
+/* Style Slick Arrows (applies to all carousels) */
+.slick-prev:before, .slick-next:before {
+    color: #333; /* Adjust arrow color */
+    font-size: 25px;
+}
+
+@media (max-width: 480px) {
+    /* Adjust carousel settings or other styles for mobile */
+    .slick-carousel {
+        max-width: 100%;
+    }
+} 

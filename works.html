@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work | Amirahtul Nurulhuda Latif</title>
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload Font CSS (Hint) -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Fallback Font CSS (noscript) -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"></noscript>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/theme-light.css">
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+</head>
+<body>
+    <!-- Add the header structure from theme-light if needed -->
+    
+    <!-- Use page-container if that's part of theme-light.css layout -->
+    <div class="page-container"> 
+        <header class="main-header"> <!-- Assuming this header structure from theme-light.css -->
+            <div class="logo">Mires.</div> <!-- Assuming logo div -->
+            <nav class="main-nav"> <!-- Assuming nav structure -->
+                <ul>
+                    <li><a href="index.html">About me</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li class="active"><a href="works.html">My Work</a></li> <!-- Set as active -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content">
+            <section class="gallery-intro" style="text-align: center; margin-bottom: 20px; padding-top: 0; margin-top: 0;">
+                <h1 class="section-title">My Work</h1>
+                <p>The designs I have posted represent some of the projects I have completed. The purpose of my ePortfolio is to showcase my achievements and reflect on the various programs and projects I have been involved in. Each entry serves as a testament to my skills and accomplishments, allowing me to showcase my growth and expertise in each endeavor.</p>
+            </section>
+
+            <!-- Design Carousel Section -->
+            <section class="carousel-section">
+                <h2 class="section-title">Designs</h2>
+                <div class="design-carousel slick-carousel"> <!-- Added generic class -->
+                    <div><img src="images/design_1.png" alt="Design 1"></div>
+                    <div><img src="images/design_2.png" alt="Design 2"></div>
+                    <div><img src="images/design_3.png" alt="Design 3"></div>
+                </div>
+            </section>
+
+            <!-- Photo Carousel Section -->
+            <section class="carousel-section">
+                <h2 class="section-title">Photos</h2>
+                <div class="photo-carousel slick-carousel"> <!-- Added slick-carousel class -->
+                    <div><img src="images/photo1.jpg" alt="Photo 1"></div>
+                    <div><img src="images/photo2.jpg" alt="Photo 2"></div>
+                    <div><img src="images/photo3.jpg" alt="Photo 3"></div>
+                    <div><img src="images/photo4.jpg" alt="Photo 4"></div>
+                    <div><img src="images/photo5.jpg" alt="Photo 5"></div>
+                    <div><img src="images/photo6.jpg" alt="Photo 6"></div>
+                </div>
+            </section>
+
+            <!-- Poster Carousel Section -->
+            <section class="carousel-section">
+                <h2 class="section-title">Posters</h2>
+                <div class="poster-carousel slick-carousel"> <!-- Added generic class -->
+                    <div><img src="images/poster1.png" alt="Poster 1"></div>
+                    <div><img src="images/poster2.png" alt="Poster 2"></div>
+                    <div><img src="images/poster3.png" alt="Poster 3"></div>
+                    <div><img src="images/poster4.png" alt="Poster 4"></div>
+                    <div><img src="images/poster5.png" alt="Poster 5"></div>
+                </div>
+            </section>
+
+            <section class="video-section">
+                <h2 class="section-title">Activity Highlight Video</h2>
+                <video controls>
+                    <source src="video/event_highlights.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p class="video-description">Shoot and edited by Mires.</p>
+            </section>
+        </main>
+
+        <!-- Assuming a standard footer structure -->
+        <footer>
+            <p>&copy; 2024 Amirahtul Nurulhuda Latif. All rights reserved.</p>
+        </footer>
+
+    </div> <!-- Close page-container -->
+
+    <!-- Add jQuery (required by Slick) -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add Slick Carousel JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- Link to your custom gallery JS for initialization -->
+    <script src="js/gallery.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1056 @@
+/* Global Styles & Variables */
+:root {
+    --primary-color: #0a2a43; /* Dark blue */
+    --secondary-color: #3a8d40; /* Green */
+    --accent-color-light: #aed6f1; /* Light blue */
+    --warning-color: #f5eaaa; /* Yellowish */
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: scroll; /* Always show vertical scrollbar to prevent width shifts */
+}
+
+.page-container {
+    max-width: 1400px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* Background decorative elements (approximated) */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px); /* Adjust blur intensity */
+    z-index: -1;
+}
+
+/* Top-left blue blur */
+body::before {
+    width: 400px;
+    height: 400px;
+    background: rgba(174, 214, 241, 0.4); /* Light blue with transparency */
+    top: -150px;
+    left: -150px;
+}
+
+/* Bottom-right green blur */
+body::after {
+    width: 350px;
+    height: 350px;
+    background: rgba(58, 141, 64, 0.3); /* Green with transparency */
+    bottom: -150px;
+    right: -100px;
+}
+
+/* Header & Navigation */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 35px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1em;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    padding: 40px 0 60px 0; /* Reduced top padding */
+    min-height: calc(100vh - 150px); /* Adjust height calculation based on header/footer */
+}
+
+.hero-content-left {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.welcome-subtext {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.hero-content-left h1 {
+    font-size: 3.5em; /* Adjust size as needed */
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero-content-left h1 .role {
+    color: var(--secondary-color); /* Green color for the role */
+    font-size: 0.6em; /* Reduced font size relative to h1 */
+    font-weight: 700; /* Adjusted weight for better readability */
+    display: block; /* Ensure it takes its own line/space */
+    margin-top: 5px; /* Add a little space above */
+}
+
+.description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    max-width: 500px; /* Limit description width */
+    color: #555;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+.btn {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.btn-primary:hover {
+    background-color: #071e31; /* Slightly darker blue */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+/* Hero Image Section */
+.hero-content-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Needed for pseudo-elements */
+}
+
+.image-wrapper {
+    position: relative;
+    max-width: 450px; /* Control image size */
+    width: 100%;
+}
+
+/* Background shape behind image (approximated) */
+.image-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    background-color: var(--accent-color-light); /* Light blue background */
+    border-radius: 20px; /* Adjust rounding */
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -45%) rotate(-5deg); /* Position and slight rotation */
+    z-index: -1;
+}
+
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 50% 30% 50% 70% / 60% 40% 60% 40%; /* Organic blob shape */
+    object-fit: cover;
+    aspect-ratio: 1 / 1; /* Maintain aspect ratio for blob */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .hero-content-left {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .hero-content-left h1 {
+        font-size: 2.8em;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .hero-content-right {
+        margin-top: 30px;
+    }
+
+    .image-wrapper {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+        flex-wrap: wrap; /* Allow nav items to wrap */
+    }
+
+    .main-nav li {
+        margin: 5px 15px;
+    }
+
+    .hero-content-left h1 {
+        font-size: 2.5em;
+    }
+
+    .page-container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content-left h1 {
+        font-size: 2.1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .image-wrapper {
+        max-width: 280px;
+    }
+
+    .main-nav li {
+        margin: 5px 10px;
+    }
+
+    body::before, body::after {
+       filter: blur(70px); /* Reduce blur on small screens */
+    }
+}
+
+/* Skills Section */
+#skills {
+    padding: 80px 0;
+    background-color: var(--primary-color); /* Dark blue background */
+    color: var(--bg-color); /* White text */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Green underline for section titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    background-color: var(--secondary-color); /* Green accent */
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#skills .section-title {
+    margin-bottom: 60px; /* More space below title in skills section */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 40px;
+    max-width: 1100px; /* Constrain grid width */
+    margin: 0 auto;
+    padding: 0 20px; /* Add padding for smaller screens */
+}
+
+.skill-item {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle background for items */
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--accent-color-light); /* Light blue icons */
+    color: var(--primary-color); /* Dark blue text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 0 auto 20px auto; /* Center icon */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Example: Different icon colors (optional) */
+.skill-icon.css-icon { background-color: #aed6f1; }
+.skill-icon.js-icon { background-color: #f5eaaa; }
+.skill-icon.python-icon { background-color: #a2d5f2; }
+.skill-icon.canva-icon { background-color: #d9bbf5; }
+.skill-icon.excel-icon { background-color: #a9dfbf; }
+
+.skill-item h3 {
+    font-size: 1.4em;
+    color: var(--bg-color);
+    margin-bottom: 10px;
+}
+
+.skill-item p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    line-height: 1.5;
+}
+
+/* Responsive Skills Section */
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+     #skills {
+        padding: 60px 0;
+    }
+    .section-title {
+        font-size: 2.2em;
+    }
+    #skills .section-title {
+        margin-bottom: 40px;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr; /* 1 column */
+        gap: 25px;
+        max-width: 450px; /* Constrain single column width */
+    }
+    .skill-item {
+        padding: 25px;
+    }
+}
+
+/* == Work Page Styles == */
+
+/* Class to hide items */
+.work-item.hidden {
+    display: none;
+}
+
+.work-title {
+    text-align: center;
+    margin-top: 20px; /* Add some space below header */
+    margin-bottom: 40px;
+    font-size: 2.5em; /* Use general title size */
+    position: relative;
+    display: inline-block; /* For centering underline */
+    left: 50%; /* Center */
+    transform: translateX(-50%); /* Center */
+}
+
+/* Green underline for section titles */
+.work-title::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    background-color: var(--secondary-color); /* Green accent */
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 18px;
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Default responsive columns */
+    gap: 30px;
+    margin-bottom: 60px; /* Space at bottom */
+    min-height: 60vh; /* Add this line to prevent collapsing */
+}
+
+/* Force 3 columns on wider screens */
+@media (min-width: 992px) {
+    .work-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.work-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s; /* Update transition */
+    text-decoration: none; /* For the link item */
+    color: inherit; /* For the link item */
+    display: flex; /* For placeholder alignment */
+    flex-direction: column; /* For link item */
+    justify-content: center; /* For placeholder alignment */
+    align-items: center; /* For placeholder alignment */
+    min-height: 200px; /* Give items some height */
+    position: relative; /* Ensure z-index works */
+}
+
+/* Style the specific project description item */
+.project-description-item {
+    background-color: #f0f4f8; /* Use light background like before */
+    border-left: 5px solid var(--secondary-color); /* Green accent border */
+    align-items: flex-start; /* Align text to start */
+    justify-content: flex-start; /* Align text to start */
+    padding: 25px; /* Adjust padding */
+}
+
+.project-description-item .project-item {
+     width: 100%; /* Ensure inner items take full width */
+}
+
+.project-description-item h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.project-description-item p {
+    margin-bottom: 15px; /* Space between projects */
+    color: #444;
+}
+
+.project-description-item .project-item:last-child p {
+    margin-bottom: 0; /* No margin on last paragraph */
+}
+
+/* Style for items containing images - APPLY ASPECT RATIO HERE */
+.image-item {
+    padding: 0; /* Remove padding if image should fill the box */
+    overflow: hidden; /* Ensure image stays within rounded corners */
+    line-height: 0; /* Remove extra space below image */
+    position: relative; /* Needed for aspect ratio */
+    padding-bottom: 100%; /* 1:1 Aspect Ratio */
+    height: 0; /* Required for padding-bottom trick */
+}
+
+.image-item img {
+    display: block; /* Remove extra space below image */
+    position: absolute; /* Position within aspect ratio box */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make image fill the container width */
+    height: 100%; /* Make image fill the container height */
+    object-fit: cover; /* Cover the area, cropping if needed */
+    cursor: pointer; /* Make image clickable */
+}
+
+/* Style for items containing video thumbnails */
+.video-thumbnail-item {
+    padding: 0;
+    overflow: hidden;
+    /* position: relative; */ /* Moved position relative to the anchor */
+    /* line-height: 0; */ /* Removed */
+    /* Ensure the main work-item styles don't interfere too much */
+    display: block; 
+    min-height: auto; /* Reset min-height */
+    align-items: stretch; /* Allow children to stretch */
+    justify-content: flex-start; /* Align top */
+}
+
+.video-thumbnail-item a {
+    display: block;
+    position: relative; /* For aspect ratio and play icon positioning */
+    width: 100%;
+    padding-bottom: 100%; /* 1:1 Aspect Ratio */
+    height: 0; /* Required for padding-bottom trick */
+    overflow: hidden; /* Hide any image overflow */
+}
+
+.video-thumbnail-item img {
+    display: block;
+    position: absolute; /* Position within the aspect ratio box */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Add transitions */
+}
+
+/* Optional: Darken image slightly and scale on hover */
+.video-thumbnail-item a:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.8);
+}
+
+/* Play icon overlay */
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em; /* Slightly smaller */
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    pointer-events: none; /* Prevent icon interfering with link */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-thumbnail-item a:hover .play-icon {
+    opacity: 1;
+}
+
+/* Style for video caption */
+.video-caption {
+    display: block; /* Ensure it takes its own line */
+    text-align: center;
+    padding: 10px 8px; /* Adjusted padding */
+    font-size: 0.8em; /* Slightly smaller */
+    color: #444; /* Darker text */
+    background-color: #f9f9f9; /* Match item background */
+    line-height: 1.4; /* Adjusted line-height */
+    border-top: 1px solid #eee; /* Add separator line */
+}
+
+.work-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    color: #444;
+}
+
+/* Allow natural aspect ratio for mock cheque items */
+.mock-cheque-item {
+    position: static; /* Override absolute positioning from image-item */
+    padding-bottom: 0; /* Override aspect ratio padding */
+    height: auto; /* Allow natural height */
+    line-height: normal; /* Reset line-height */
+}
+
+.mock-cheque-item img {
+    position: static; /* Override absolute positioning */
+    height: auto; /* Allow natural height */
+    /* Width 100% is inherited from .image-item img */
+}
+
+/* Allow natural aspect ratio for medal items */
+.medal-item {
+    position: static; /* Override absolute positioning from image-item */
+    padding-bottom: 0; /* Override aspect ratio padding */
+    height: auto; /* Allow natural height */
+    line-height: normal; /* Reset line-height */
+}
+
+.medal-item img {
+    position: static; /* Override absolute positioning */
+    height: auto; /* Allow natural height */
+    /* Width 100% is inherited from .image-item img */
+}
+
+/* Allow natural aspect ratio for banner items - REMOVED */
+/*
+.banner-item {
+    position: static; 
+    padding-bottom: 0; 
+    height: auto; 
+}
+
+.banner-item img {
+    position: static; 
+    height: auto; 
+}
+*/
+
+/* Allow natural aspect ratio for badge items */
+.badge-item {
+    position: static; /* Override absolute positioning from image-item */
+    padding-bottom: 0; /* Override aspect ratio padding */
+    height: auto; /* Allow natural height */
+    line-height: normal; /* Reset line-height */
+}
+
+.badge-item img {
+    position: static; /* Override absolute positioning */
+    height: auto; /* Allow natural height */
+    /* Width 100% is inherited from .image-item img */
+}
+
+/* Hover effect for posters - REMOVED */
+/*
+.work-item.poster-item:hover {
+    z-index: 10;
+    transform: scale(3); 
+    overflow: visible; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+}
+*/
+
+/* == End Work Page Styles == */
+
+/* == Lightbox Styles == */
+
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#lightbox.lightbox-hidden {
+    opacity: 0;
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto; /* Let image determine width */
+    height: auto; /* Let image determine height */
+    /* To enforce exact 1080x1080 if needed, uncomment below, but be wary of overflow */
+    /* width: 1080px; */
+    /* height: 1080px; */
+    /* object-fit: contain; */ /* Ensure whole image fits if fixed size used */
+    display: block;
+    border: 3px solid white;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+/* Make poster images clickable - REMOVED (now handled by .image-item img) */
+/*
+.poster-item img {
+    cursor: pointer;
+}
+*/
+
+/* == End Lightbox Styles == */
+
+/* == Contact Page Styles == */
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    padding: 40px 0 60px 0; /* Reduced top padding */
+    gap: 40px; /* Space between columns */
+    min-height: calc(100vh - 150px); /* Example height */
+}
+
+.contact-content-left {
+    flex: 1.5; /* Give text column more weight */
+    max-width: 550px; /* Slightly increase max-width if needed */
+}
+
+.contact-subtext {
+    font-size: 1.1em;
+    color: var(--secondary-color); /* Green accent */
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-title {
+    font-size: 3.2em;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.contact-details p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 1.15em;
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details li {
+    margin-bottom: 10px;
+    font-size: 1.15em;
+}
+
+.contact-details li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-details li a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.contact-content-right {
+    flex: 1; /* Give image column less weight */
+    text-align: center; /* Center image if needed */
+}
+
+.contact-content-right img {
+    max-width: 450px; /* Limit image max width */
+    width: 100%; /* Allow it to shrink */
+    height: auto;
+    border-radius: 10px; /* Optional rounded corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+/* Responsive Contact Page */
+@media (max-width: 992px) {
+    .contact-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-content-left {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    .contact-title {
+        font-size: 2.5em;
+    }
+}
+
+/* == End Contact Page Styles == */
+
+/* Gallery Page Specific Styles */
+.main-content {
+    padding-top: 20px; /* Reduced top padding */
+    padding-bottom: 60px; /* Add space above the footer */
+}
+
+.gallery-intro p {
+    max-width: 800px; /* Limit width of intro text */
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--secondary-color); /* Changed to green */
+    font-size: 1.1em;
+    font-weight: 700; /* Added bold */
+}
+
+.carousel-section, .video-section {
+    margin-bottom: 60px; /* Space between sections */
+}
+
+/* Style adjustments for Slick Carousel */
+.slick-carousel .slick-slide {
+    padding: 0 15px; /* Add spacing between slides */
+}
+
+/* Limit width of the Design Carousel specifically */
+.main-content .carousel-section:has(.design-carousel) .slick-carousel {
+    max-width: 700px; /* Adjust max-width for the design carousel */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slick-carousel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Rounded corners for images */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease;
+}
+
+.slick-carousel img:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}
+
+/* Style Slick dots */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: var(--primary-color); /* Use theme color for dots */
+    opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--secondary-color); /* Use accent color for active dot */
+    opacity: 1;
+}
+
+/* Style Slick arrows */
+.slick-prev:before, .slick-next:before {
+    font-size: 25px;
+    color: var(--primary-color); /* Use theme color for arrows */
+    opacity: 0.7;
+}
+
+.slick-prev:hover:before, .slick-next:hover:before {
+    opacity: 1;
+}
+
+/* Video Section Styling */
+.video-section video {
+    max-width: 400px; /* Further reduced max-width again */
+    display: block;
+    margin: 20px auto 0 auto; /* Center video and add margin top */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.video-description {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+    font-style: italic;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #eee; /* Subtle top border */
+    color: #777;
+    font-size: 0.9em;
+}
+
+/* Responsive Adjustments for Gallery */
+@media (max-width: 768px) {
+    .gallery-intro h1,
+    .carousel-section h2,
+    .video-section h2 {
+        font-size: 1.8em; /* Adjust title sizes for smaller screens */
+    }
+
+    .gallery-intro p {
+        font-size: 1em;
+    }
+
+    .slick-carousel .slick-slide {
+        padding: 0 8px; /* Reduce spacing */
+    }
+
+    .slick-prev:before, .slick-next:before {
+        font-size: 20px; /* Smaller arrows */
+    }
+
+    .video-section video {
+        max-width: 95%; /* Allow video to take more width */
+    }
+}
+
+/* == Ensure these Carousel Layout Shift rules are AT THE VERY END == */
+
+/* Reserve space using aspect-ratio and hide content */
+body .page-container .main-content .carousel-section .slick-carousel:not(.slick-initialized) > div {
+    aspect-ratio: 1 / 1; /* Force square aspect ratio for the container */
+    background-color: #f0f0f0; /* Optional: subtle placeholder bg */
+    overflow: hidden; /* Keep content contained */
+}
+
+/* Hide images/content within the slides before init */
+body .page-container .main-content .carousel-section .slick-carousel:not(.slick-initialized) > div * {
+    opacity: 0 !important;
+    visibility: hidden;
+    transition: none !important;
+}
+
+/* Remove placeholder aspect ratio styling once initialized */
+body .page-container .main-content .carousel-section .slick-carousel.slick-initialized .slick-slide {
+    aspect-ratio: auto; /* Let Slick/CSS control aspect ratio now */
+    background-color: transparent;
+    overflow: visible;
+}
+
+/* Show images smoothly once initialized */
+body .page-container .main-content .carousel-section .slick-carousel.slick-initialized .slick-slide img {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease-in-out; /* Smooth fade-in */
+}
+
+/* Initially hide sections to prevent flash/shift before JS reveals them - Place LAST */
+.carousel-section,
+.video-section {
+    visibility: hidden;
+}
+
+/* Styles for specific carousels or sections if needed */
+
+/* Vertical layout for Photo section - COMMENTED OUT FOR SLICK */
+/*
+.photo-carousel {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Add space between photos */
+    margin-bottom: 40px; /* Add some space below the section */
+    visibility: visible; /* ADDED: Ensure this section is visible */
+}
+
+.photo-carousel div {
+    width: 100%; /* Make divs take full width */
+    max-width: 800px; /* Optional: Limit max width of photos */
+    margin: 0; /* Reset any inherited margin */
+}
+
+.photo-carousel img {
+    display: block; /* Remove extra space below image */
+    width: 100%; /* Make image fill its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+}
+*/
+
+/* Specific styling for photo carousel when using Slick */
+.photo-carousel.slick-carousel .slick-slide {
+    margin: 0 5px; /* Adjust horizontal margin between slides */
+    padding: 10px 0; /* Add vertical padding if needed */
+    box-sizing: border-box;
+}
+
+.photo-carousel.slick-carousel .slick-slide img {
+    display: block; /* Ensure image behaves like a block element */
+    width: 100%; /* Make image fill the slide width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: round corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}
+
+/* Keep other carousels as they are */
+.design-carousel.slick-carousel .slick-slide,
+.poster-carousel.slick-carousel .slick-slide {
+    margin: 0 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.design-carousel.slick-carousel img,
+.poster-carousel.slick-carousel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.slick-carousel img:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+}

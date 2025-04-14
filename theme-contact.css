@@ -1,0 +1,214 @@
+/* theme-contact.css - Contact Page Theme */
+
+/* Global Styles & Variables (Dark Theme with Pastels) */
+:root {
+    --primary-color-dark: #2C2A4A; /* Deep Purple/Blue */
+    --secondary-color-dark: #4F4C6B; /* Slightly Lighter Dark */
+    --accent-pastel-1: #A6E3E9; /* Pastel Blue */
+    --accent-pastel-2: #CBF1F5; /* Lighter Pastel Blue */
+    --accent-pastel-3: #F39F86; /* Pastel Peach */
+    --accent-pastel-4: #E4BAD4; /* Pastel Pink/Lavender */
+    --text-color-dark: #EAEAEA; /* Off-white text */
+    --text-color-muted-dark: #b0afcf; /* Muted text */
+    --font-family: 'Poppins', sans-serif;
+    /* Include light theme variables for reference */
+    --primary-color: #0a2a43; 
+    --secondary-color: #3a8d40; 
+    --accent-color-light: #aed6f1; 
+    --warning-color: #f5eaaa; 
+    --bg-color: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--primary-color-dark); /* Dark bg */
+    color: var(--text-color-dark); /* Light text */
+    line-height: 1.6;
+    overflow-x: hidden; 
+}
+body::before, body::after { display: none; }
+
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+/* Header & Navigation */
+.main-header { display: flex; justify-content: space-between; align-items: center; padding: 30px 0; }
+.logo { font-size: 1.8em; font-weight: 700; color: var(--text-color-dark); }
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.main-nav li { margin-left: 35px; }
+.main-nav a { text-decoration: none; color: var(--text-color-dark); font-size: 1em; font-weight: 600; transition: color 0.3s ease; }
+.main-nav a:hover { color: var(--accent-pastel-3); /* Use Peach for contact hover */ }
+
+/* Style for active nav link */
+/*
+.main-nav li.active a {
+    color: var(--warning-color);
+    font-weight: 700; 
+}
+*/
+
+/* == Contact Page Styles (Dark Pastel Theme) == */
+
+.contact-section {
+    display: flex;
+    align-items: center;
+    padding: 40px 0 60px 0; /* Keep reduced top padding */
+    gap: 50px; /* Increase gap */
+    min-height: calc(100vh - 150px); 
+}
+
+.contact-content-left {
+    flex: 1.2; /* Adjust flex balance */
+    max-width: 600px; 
+}
+
+.contact-subtext {
+    font-size: 1.1em;
+    color: var(--accent-pastel-3); /* Use Peach accent */
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.contact-title {
+    font-size: 3.2em;
+    color: var(--text-color-dark);
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 35px; /* Increase spacing */
+    line-height: 1.4; /* Slightly increased line height */
+}
+
+.contact-details p {
+    margin-bottom: 25px;
+    color: var(--text-color-dark); /* Change back to default text color */
+    font-size: 1.15em;
+}
+
+/* Remove old list styles */
+/*
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details li {
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    /* display: flex; */ /* Removed flex for simpler vertical list */
+    /* align-items: center; */ /* Removed flex for simpler vertical list */
+/*}
+.contact-details li strong {
+    /* color: var(--accent-pastel-4); */ /* Removed label styling */
+    /* min-width: 100px; */ /* Removed label styling */
+/*    display: none; */ /* Hide the strong tag completely - No longer needed */
+/*}
+
+.contact-details li a {
+    color: var(--text-color-muted-dark); */ /* Use muted color for links */
+/*    text-decoration: none;
+    font-weight: 400; */ /* Normal weight for links */
+    /* border-bottom: 1px dashed var(--accent-pastel-1); */ /* Removed dashed underline */
+/*    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-details li a:hover {
+    color: var(--accent-pastel-1);
+    /* border-bottom-color: var(--accent-pastel-1); */ /* Underline removed */
+/*}*/
+
+/* New Contact Button Styles */
+.contact-buttons {
+    display: flex;
+    gap: 15px; /* Spacing between buttons */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.contact-button {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--secondary-color-dark); /* Use secondary dark color */
+    color: var(--text-color-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid var(--accent-pastel-1); /* Subtle border */
+}
+
+.contact-button:hover {
+    background-color: var(--accent-pastel-1); /* Use accent color on hover */
+    color: var(--primary-color-dark);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.button-icon {
+    width: 40px; /* Increased size significantly */
+    height: 40px; /* Increased size significantly */
+    margin-right: 10px; /* Adjust space between icon and text */
+    vertical-align: middle; /* Helps alignment */
+    /* Re-apply circle styling */
+    border-radius: 50%;
+    border: 1px solid var(--accent-pastel-2);
+    padding: 5px; /* Use consistent padding */
+    box-sizing: border-box;
+    background-color: var(--primary-color-dark);
+    object-fit: cover; /* Ensure content fits well */
+}
+
+/* Remove specific style for Email icon - now handled by general rule */
+/*
+.email-button .button-icon {
+    border-radius: 50%;
+    border: 1px solid var(--accent-pastel-2);
+    padding: 5px; 
+    box-sizing: border-box;
+    background-color: var(--primary-color-dark);
+    object-fit: cover; 
+    width: 40px; 
+    height: 40px;
+}
+*/
+
+/* Optional: Specific button styles if needed */
+/* .email-button { ... } */
+/* .linkedin-button { ... } */
+/* .instagram-button { ... } */
+
+.contact-content-right {
+    flex: 1; 
+    text-align: center; 
+}
+
+.contact-content-right img {
+    max-width: 450px; 
+    width: 100%; 
+    height: auto;
+    border-radius: 15px; /* More rounded */
+    border: 4px solid var(--secondary-color-dark); /* Dark border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); 
+}
+
+/* Responsive Contact Page */
+@media (max-width: 992px) {
+    .contact-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-content-left {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+    .contact-details ul { text-align: center; }
+    .contact-details li { justify-content: center; }
+    .contact-details li strong { min-width: auto; margin-right: 10px; }
+    .contact-title { font-size: 2.5em; }
+} 
